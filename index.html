@@ -35,13 +35,8 @@
       text-align: center;
     }
 
-    nav ul {
-      list-style: none;
-    }
-
-    nav ul li {
-      margin-bottom: 8px;
-    }
+    nav ul { list-style: none; }
+    nav ul li { margin-bottom: 8px; }
 
     nav ul li a {
       display: block;
@@ -52,11 +47,8 @@
       font-weight: 500;
       transition: background 0.3s;
     }
-
     nav ul li a:hover,
-    nav ul li a.active {
-      background: rgba(255,255,255,0.15);
-    }
+    nav ul li a.active { background: rgba(255,255,255,0.15); }
 
     /* Toggle button */
     #toggle-btn {
@@ -77,13 +69,11 @@
     main {
       margin-left: 260px;
       padding: 40px;
-      max-width: 900px;
+      max-width: 950px;
       flex: 1;
     }
 
-    section {
-      margin-bottom: 50px;
-    }
+    section { margin-bottom: 50px; }
 
     h2 {
       font-size: 1.6rem;
@@ -93,15 +83,20 @@
       padding-bottom: 6px;
     }
 
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #1a5276;
+    }
+
     p, li {
       font-size: 1rem;
       line-height: 1.7;
       margin-bottom: 10px;
     }
 
-    ul, ol {
-      margin-left: 20px;
-    }
+    ul, ol { margin-left: 20px; }
 
     pre {
       background: #f1f3f6;
@@ -127,7 +122,6 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
-
     .feature-card {
       background: #fff;
       border-radius: 12px;
@@ -135,25 +129,21 @@
       box-shadow: 0 3px 6px rgba(0,0,0,0.08);
       transition: transform 0.2s;
     }
-    .feature-card:hover {
-      transform: translateY(-4px);
-    }
+    .feature-card:hover { transform: translateY(-4px); }
 
     /* Dark mode */
-    body.dark {
-      background: #121212;
-      color: #e0e0e0;
-    }
-    body.dark aside {background: #000;}
-    body.dark nav ul li a {color: #ccc;}
+    body.dark { background: #121212; color: #e0e0e0; }
+    body.dark aside { background: #000; }
+    body.dark nav ul li a { color: #ccc; }
     body.dark nav ul li a.active,
-    body.dark nav ul li a:hover {background: #333; color: #fff;}
-    body.dark main {color: #e0e0e0;}
-    body.dark h2 {color: #4da6ff; border-bottom-color: #4da6ff;}
-    body.dark pre {background: #2a2a2a; color: #e0e0e0;}
-    body.dark footer {background: #000;}
-    body.dark #toggle-btn {background: #333; color: #fff;}
-    body.dark #toggle-btn:hover {background: #444;}
+    body.dark nav ul li a:hover { background: #333; color: #fff; }
+    body.dark main { color: #e0e0e0; }
+    body.dark h2 { color: #4da6ff; border-bottom-color: #4da6ff; }
+    body.dark h3 { color: #80c7ff; }
+    body.dark pre { background: #2a2a2a; color: #e0e0e0; }
+    body.dark footer { background: #000; }
+    body.dark #toggle-btn { background: #333; color: #fff; }
+    body.dark #toggle-btn:hover { background: #444; }
   </style>
 </head>
 <body>
@@ -162,30 +152,86 @@
     <button id="toggle-btn">🌙 Dark Mode</button>
     <nav>
       <ul>
-        <li><a href="#overview" class="active">Overview</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#configuration">Configuration</a></li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#api">API</a></li>
-        <li><a href="#contributing">Contributing</a></li>
-        <li><a href="#testing">Testing</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#license">License</a></li>
-        <li><a href="#acknowledgements">Acknowledgements</a></li>
+        <li><a href="#introduction" class="active">Introduction</a></li>
+        <li><a href="#background">Background & Context</a></li>
+        <li><a href="#areas">Areas of Interest</a></li>
+        <li><a href="#system">System Design & Architecture</a></li>
+        <li><a href="#implementation">Implementation & Development</a></li>
+        <li><a href="#features">Key Features</a></li>
+        <li><a href="#challenges">Challenges & Solutions</a></li>
       </ul>
     </nav>
   </aside>
 
   <main>
-    <section id="overview">
-      <h2>Project Overview</h2>
-      <p>Symme is a secure communication application designed to provide users with private, encrypted, and anonymous messaging and calling.</p>
+    <!-- Introduction -->
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <h3>Project Overview</h3>
+      <p>Symme is a secure communication platform that provides private, encrypted, and anonymous messaging and calling.</p>
+      
+      <h3>Problem Statement</h3>
+      <p>Many existing communication apps compromise user privacy, allow data tracking, and lack robust end-to-end security. Symme addresses these gaps.</p>
+      
+      <h3>Goals & Objectives</h3>
+      <ul>
+        <li>Ensure end-to-end encryption for all communication.</li>
+        <li>Enable anonymous sign-in without personal identifiers.</li>
+        <li>Provide secure file sharing and calling features.</li>
+        <li>Prevent data leaks through screenshots and screen recording.</li>
+      </ul>
+      
+      <h3>Project Importance</h3>
+      <p>Symme is crucial for users who prioritize security and anonymity in their digital communications, especially in sensitive or high-risk environments.</p>
     </section>
 
+    <!-- Background -->
+    <section id="background">
+      <h2>Background & Context</h2>
+      <p>With rising concerns around digital surveillance and privacy breaches, secure communication has become a necessity.</p>
+      
+      <h3>Limitations</h3>
+      <ul>
+        <li>Internet connectivity required for all communication.</li>
+        <li>Depends on Firebase infrastructure for authentication and storage.</li>
+        <li>Device-level restrictions may vary in enforcing screenshot prevention.</li>
+      </ul>
+    </section>
+
+    <!-- Areas of Interest -->
+    <section id="areas">
+      <h2>Areas of Interest Addressed</h2>
+      <p>Symme focuses on:</p>
+      <ul>
+        <li>Cybersecurity & encryption</li>
+        <li>Anonymous digital identity</li>
+        <li>Decentralized communication patterns</li>
+        <li>Privacy-first user experience</li>
+      </ul>
+    </section>
+
+    <!-- System Design -->
+    <section id="system">
+      <h2>System Design & Architecture</h2>
+      <p><b>Tech stack:</b> Flutter, Dart, Firebase</p>
+      <p>The architecture includes anonymous login, QR code exchange, encrypted Firestore storage, and secure audio/video call routing.</p>
+    </section>
+
+    <!-- Implementation -->
+    <section id="implementation">
+      <h2>Implementation & Development</h2>
+      <pre>
+git clone https://github.com/your-repo/symme.git
+cd symme
+flutter pub get
+flutter run
+      </pre>
+      <p>Configuration requires Firebase Authentication setup, Firestore security rules, and environment variable management.</p>
+    </section>
+
+    <!-- Features -->
     <section id="features">
-      <h2>Features</h2>
+      <h2>Key Features</h2>
       <div class="features-grid">
         <div class="feature-card">🔒 End-to-end encryption</div>
         <div class="feature-card">⏳ Disappearing messages</div>
@@ -198,79 +244,17 @@
       </div>
     </section>
 
-    <section id="architecture">
-      <h2>Architecture / System Design</h2>
-      <p><b>Tech stack:</b> Flutter, Dart, Firebase</p>
-      <p>System flow includes anonymous login, QR code exchange, encrypted storage via Firestore, and secure audio/video call routing.</p>
-    </section>
-
-    <section id="installation">
-      <h2>Installation / Setup</h2>
-      <pre>
-git clone https://github.com/your-repo/symme.git
-cd symme
-flutter pub get
-flutter run
-      </pre>
-    </section>
-
-    <section id="configuration">
-      <h2>Configuration</h2>
-      <p>Set up Firebase Authentication, Firestore rules, and secure environment variables.</p>
-    </section>
-
-    <section id="usage">
-      <h2>Usage</h2>
-      <ol>
-        <li>Sign in anonymously (UID auto-generated).</li>
-        <li>Scan QR code to connect with another user.</li>
-        <li>Send encrypted messages, files, or attachments.</li>
-        <li>Start secure audio or video calls.</li>
-      </ol>
-    </section>
-
-    <section id="api">
-      <h2>API Reference</h2>
+    <!-- Challenges -->
+    <section id="challenges">
+      <h2>Challenges & Solutions</h2>
       <ul>
-        <li><code>POST /messages/send</code> – Encrypt and send a message</li>
-        <li><code>GET /messages/{conversationId}</code> – Fetch messages</li>
-        <li><code>POST /calls/initiate</code> – Start a secure call</li>
+        <li><b>Challenge:</b> Preventing screenshots across devices.  
+          <br><b>Solution:</b> Device-level flags and platform-specific restrictions.</li>
+        <li><b>Challenge:</b> Maintaining low latency for encrypted calls.  
+          <br><b>Solution:</b> Efficient routing and Firebase optimization.</li>
+        <li><b>Challenge:</b> Balancing anonymity with usability.  
+          <br><b>Solution:</b> Auto-generated UIDs and QR-based user connections.</li>
       </ul>
-    </section>
-
-    <section id="contributing">
-      <h2>Contributing</h2>
-      <pre>
-git checkout -b feature/new-feature
-git commit -m "Add new feature"
-git push origin feature/new-feature
-      </pre>
-    </section>
-
-    <section id="testing">
-      <h2>Testing</h2>
-      <pre>
-flutter test
-      </pre>
-    </section>
-
-    <section id="faq">
-      <h2>Troubleshooting & FAQ</h2>
-      <ul>
-        <li><b>App not connecting to Firebase:</b> Verify API keys.</li>
-        <li><b>Messages not disappearing:</b> Check Firestore TTL rules.</li>
-        <li><b>Screenshots possible:</b> Confirm device restrictions.</li>
-      </ul>
-    </section>
-
-    <section id="license">
-      <h2>License</h2>
-      <p>[Insert license type here]</p>
-    </section>
-
-    <section id="acknowledgements">
-      <h2>Acknowledgements</h2>
-      <p>Powered by Flutter, Dart, and Firebase.</p>
     </section>
 
     <footer>
