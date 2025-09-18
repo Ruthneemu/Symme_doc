@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symme Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: #0a3d62;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 5px 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #0a3d62;
+      margin-top: 20px;
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0a3d62;
+      color: #fff;
+      margin-top: 20px;
+    }
+
+    /* Dark mode styles */
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark main {
+      background: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    body.dark h2 {
+      color: #4da6ff;
+    }
+
+    body.dark pre {
+      background: #2a2a2a;
+      color: #e0e0e0;
+    }
+
+    body.dark header,
+    body.dark footer {
+      background: #000;
+      color: #fff;
+    }
+
+    /* Toggle button */
+    #toggle-btn {
+      background: #fff;
+      border: none;
+      padding: 8px 14px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    #toggle-btn:hover {
+      background: #ddd;
+    }
+
+    body.dark #toggle-btn {
+      background: #333;
+      color: #fff;
+    }
+
+    body.dark #toggle-btn:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Symme – Secure Communication Platform</h1>
+    <button id="toggle-btn">🌙 Dark Mode</button>
+    <nav>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#acknowledgements">Acknowledgements</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <p>Symme is a secure communication application designed to provide users with private, encrypted, and anonymous messaging and calling.</p>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>End-to-end message encryption & decryption</li>
+        <li>Disappearing messages</li>
+        <li>Encrypted audio & video calls with rerouting</li>
+        <li>Support for images, files, and attachments</li>
+        <li>Anonymous sign-in using unique UID</li>
+        <li>No screenshots, no screen recording</li>
+        <li>QR code scanning for secure ID exchange</li>
+        <li>Custom themes and modes</li>
+      </ul>
+    </section>
+
+    <section id="architecture">
+      <h2>Architecture / System Design</h2>
+      <p>Tech stack: Flutter, Dart, Firebase</p>
+      <p>System flow includes anonymous login, QR code exchange, encrypted storage via Firestore, and secure audio/video call routing.</p>
+    </section>
+
+    <section id="installation">
+      <h2>Installation / Setup</h2>
+      <pre>
+git clone https://github.com/your-repo/symme.git
+cd symme
+flutter pub get
+flutter run
+      </pre>
+    </section>
+
+    <section id="configuration">
+      <h2>Configuration</h2>
+      <p>Set up Firebase Authentication, Firestore rules, and secure environment variables.</p>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      <ol>
+        <li>Sign in anonymously (UID auto-generated).</li>
+        <li>Scan QR code to connect with another user.</li>
+        <li>Send encrypted messages, files, or attachments.</li>
+        <li>Start secure audio or video calls.</li>
+      </ol>
+    </section>
+
+    <section id="api">
+      <h2>API Reference</h2>
+      <p>Example endpoints:</p>
+      <ul>
+        <li><code>POST /messages/send</code> – Encrypt and send a message</li>
+        <li><code>GET /messages/{conversationId}</code> – Fetch messages</li>
+        <li><code>POST /calls/initiate</code> – Start a secure call</li>
+      </ul>
+    </section>
+
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <pre>
+git checkout -b feature/new-feature
+git commit -m "Add new feature"
+git push origin feature/new-feature
+      </pre>
+    </section>
+
+    <section id="testing">
+      <h2>Testing</h2>
+      <pre>
+flutter test
+      </pre>
+    </section>
+
+    <section id="faq">
+      <h2>Troubleshooting & FAQ</h2>
+      <ul>
+        <li><b>App not connecting to Firebase:</b> Verify API keys.</li>
+        <li><b>Messages not disappearing:</b> Check Firestore TTL rules.</li>
+        <li><b>Screenshots possible:</b> Confirm device restrictions.</li>
+      </ul>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>[Insert license type here]</p>
+    </section>
+
+    <section id="acknowledgements">
+      <h2>Acknowledgements</h2>
+      <p>Powered by Flutter, Dart, and Firebase.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Symme Project. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggleBtn = document.getElementById("toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Highlight active section in navbar on scroll
+    window.addEventListener('scroll', () => {
+      let sections = document.querySelectorAll("main section");
+      let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+
+      sections.forEach(section => {
+        if (
+          scrollPos >= section.offsetTop - 60 &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          document.querySelectorAll("nav ul li a").forEach(link => {
+            link.classList.remove("active");
+          });
+          document
+            .querySelector(\`nav ul li a[href="#\${section.id}"]\`)
+            .classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
