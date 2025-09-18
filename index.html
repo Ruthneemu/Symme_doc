@@ -5,51 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Symme Documentation</title>
   <style>
-    /* General reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* General Reset */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: "Inter", Arial, sans-serif;
-      background: #f4f6f9;
+      background: #f5f7fa;
       color: #333;
-      line-height: 1.7;
+      display: flex;
       transition: background 0.3s, color 0.3s;
     }
 
-    header {
-      background: linear-gradient(135deg, #0a3d62, #1e6091);
+    /* Sidebar */
+    aside {
+      width: 260px;
+      background: #0a3d62;
       color: #fff;
+      height: 100vh;
+      position: fixed;
+      top: 0; left: 0;
+      display: flex;
+      flex-direction: column;
       padding: 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      overflow-y: auto;
     }
 
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    aside h1 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     nav ul {
       list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    }
+
+    nav ul li {
+      margin-bottom: 8px;
     }
 
     nav ul li a {
-      color: #fff;
+      display: block;
+      padding: 10px 14px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 6px;
+      color: #fff;
+      font-weight: 500;
       transition: background 0.3s;
     }
 
@@ -58,6 +58,7 @@
       background: rgba(255,255,255,0.15);
     }
 
+    /* Toggle button */
     #toggle-btn {
       background: #fff;
       color: #0a3d62;
@@ -66,34 +67,40 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
+      margin: 15px auto;
+      width: 100%;
       transition: all 0.3s;
     }
+    #toggle-btn:hover {background: #e3e3e3;}
 
-    #toggle-btn:hover {
-      background: #e3e3e3;
-    }
-
+    /* Main Content */
     main {
-      max-width: 950px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background 0.3s, color 0.3s;
+      margin-left: 260px;
+      padding: 40px;
+      max-width: 900px;
+      flex: 1;
     }
 
     section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     h2 {
+      font-size: 1.6rem;
       color: #0a3d62;
-      font-size: 1.5rem;
       margin-bottom: 15px;
-      border-left: 4px solid #0a3d62;
-      padding-left: 10px;
+      border-bottom: 2px solid #0a3d62;
+      padding-bottom: 6px;
+    }
+
+    p, li {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    ul, ol {
+      margin-left: 20px;
     }
 
     pre {
@@ -111,8 +118,25 @@
       background: #0a3d62;
       color: #fff;
       margin-top: 40px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
+      border-radius: 8px;
+    }
+
+    /* Feature cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
     }
 
     /* Dark mode */
@@ -120,40 +144,21 @@
       background: #121212;
       color: #e0e0e0;
     }
-
-    body.dark main {
-      background: #1e1e1e;
-      color: #e0e0e0;
-    }
-
-    body.dark h2 {
-      color: #4da6ff;
-      border-left-color: #4da6ff;
-    }
-
-    body.dark pre {
-      background: #2a2a2a;
-      color: #e0e0e0;
-    }
-
-    body.dark header,
-    body.dark footer {
-      background: #000;
-    }
-
-    body.dark #toggle-btn {
-      background: #333;
-      color: #fff;
-    }
-
-    body.dark #toggle-btn:hover {
-      background: #444;
-    }
+    body.dark aside {background: #000;}
+    body.dark nav ul li a {color: #ccc;}
+    body.dark nav ul li a.active,
+    body.dark nav ul li a:hover {background: #333; color: #fff;}
+    body.dark main {color: #e0e0e0;}
+    body.dark h2 {color: #4da6ff; border-bottom-color: #4da6ff;}
+    body.dark pre {background: #2a2a2a; color: #e0e0e0;}
+    body.dark footer {background: #000;}
+    body.dark #toggle-btn {background: #333; color: #fff;}
+    body.dark #toggle-btn:hover {background: #444;}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Symme – Secure Communication Platform</h1>
+  <aside>
+    <h1>📘 Symme Docs</h1>
     <button id="toggle-btn">🌙 Dark Mode</button>
     <nav>
       <ul>
@@ -171,15 +176,107 @@
         <li><a href="#acknowledgements">Acknowledgements</a></li>
       </ul>
     </nav>
-  </header>
+  </aside>
 
   <main>
-    <!-- Keep your same content here -->
-  </main>
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <p>Symme is a secure communication application designed to provide users with private, encrypted, and anonymous messaging and calling.</p>
+    </section>
 
-  <footer>
-    <p>© 2025 Symme Project. All rights reserved.</p>
-  </footer>
+    <section id="features">
+      <h2>Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">🔒 End-to-end encryption</div>
+        <div class="feature-card">⏳ Disappearing messages</div>
+        <div class="feature-card">📞 Encrypted audio & video calls</div>
+        <div class="feature-card">📂 File & image sharing</div>
+        <div class="feature-card">🕵️ Anonymous sign-in</div>
+        <div class="feature-card">🚫 No screenshots allowed</div>
+        <div class="feature-card">📲 QR code secure exchange</div>
+        <div class="feature-card">🎨 Custom themes & modes</div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <h2>Architecture / System Design</h2>
+      <p><b>Tech stack:</b> Flutter, Dart, Firebase</p>
+      <p>System flow includes anonymous login, QR code exchange, encrypted storage via Firestore, and secure audio/video call routing.</p>
+    </section>
+
+    <section id="installation">
+      <h2>Installation / Setup</h2>
+      <pre>
+git clone https://github.com/your-repo/symme.git
+cd symme
+flutter pub get
+flutter run
+      </pre>
+    </section>
+
+    <section id="configuration">
+      <h2>Configuration</h2>
+      <p>Set up Firebase Authentication, Firestore rules, and secure environment variables.</p>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      <ol>
+        <li>Sign in anonymously (UID auto-generated).</li>
+        <li>Scan QR code to connect with another user.</li>
+        <li>Send encrypted messages, files, or attachments.</li>
+        <li>Start secure audio or video calls.</li>
+      </ol>
+    </section>
+
+    <section id="api">
+      <h2>API Reference</h2>
+      <ul>
+        <li><code>POST /messages/send</code> – Encrypt and send a message</li>
+        <li><code>GET /messages/{conversationId}</code> – Fetch messages</li>
+        <li><code>POST /calls/initiate</code> – Start a secure call</li>
+      </ul>
+    </section>
+
+    <section id="contributing">
+      <h2>Contributing</h2>
+      <pre>
+git checkout -b feature/new-feature
+git commit -m "Add new feature"
+git push origin feature/new-feature
+      </pre>
+    </section>
+
+    <section id="testing">
+      <h2>Testing</h2>
+      <pre>
+flutter test
+      </pre>
+    </section>
+
+    <section id="faq">
+      <h2>Troubleshooting & FAQ</h2>
+      <ul>
+        <li><b>App not connecting to Firebase:</b> Verify API keys.</li>
+        <li><b>Messages not disappearing:</b> Check Firestore TTL rules.</li>
+        <li><b>Screenshots possible:</b> Confirm device restrictions.</li>
+      </ul>
+    </section>
+
+    <section id="license">
+      <h2>License</h2>
+      <p>[Insert license type here]</p>
+    </section>
+
+    <section id="acknowledgements">
+      <h2>Acknowledgements</h2>
+      <p>Powered by Flutter, Dart, and Firebase.</p>
+    </section>
+
+    <footer>
+      <p>© 2025 Symme Project. All rights reserved.</p>
+    </footer>
+  </main>
 
   <script>
     // Dark mode toggle
@@ -200,20 +297,19 @@
       });
     });
 
-    // Active link on scroll
+    // Active link highlight
     window.addEventListener("scroll", () => {
       let sections = document.querySelectorAll("main section");
       let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
 
       sections.forEach(section => {
-        if (scrollPos >= section.offsetTop - 100 &&
+        if (scrollPos >= section.offsetTop - 120 &&
             scrollPos < section.offsetTop + section.offsetHeight) {
           document.querySelectorAll("nav ul li a").forEach(link => {
             link.classList.remove("active");
           });
-          document
-            .querySelector(`nav ul li a[href="#${section.id}"]`)
-            .classList.add("active");
+          let activeLink = document.querySelector(`nav ul li a[href="#${section.id}"]`);
+          if (activeLink) activeLink.classList.add("active");
         }
       });
     });
